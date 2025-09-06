@@ -1,0 +1,6 @@
+[tool.pytest.ini_options]
+addopts = "-ra -vv -s"
+testpaths = [
+    "tests",
+    "integration",
+]
