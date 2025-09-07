@@ -1,4 +1,5 @@
-set -e
+# Executa a migração do banco de dados
+flask db upgrade
 
-pip run flask --app src.app db upgrade
-pip run gunicorn src.wsgi:app
+# Inicia o servidor Gunicorn
+gunicorn src.wsgi:app
