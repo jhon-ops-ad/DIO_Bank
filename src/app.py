@@ -24,7 +24,7 @@ class Role(db.Model):
     user: Mapped[list['User']] = relationship(back_populates='role')
 
     def __repr__(self) -> str:
-        return f'Role(id={self.id!r}, username{self.username!r})'
+        return f'Role(id={self.id!r}, name{self.name!r})'
 
 class User(db.Model):
     id: Mapped[int] = mapped_column(sa.Integer, primary_key=True)
@@ -61,7 +61,7 @@ def create_app(test_config=None):
     app = Flask(__name__, instance_relative_config=True)
     app.config.from_mapping(
         SECRET_KEY='dev',
-        SQLALCHEMY_DATABASE_URI= os.environ ['DATABASE_URL'],
+        SQLALCHEMY_DATABASE_URI= os.environ["DATABASE_URL"],
         JWT_SECRET_KEY = 'super-secret',
         JWT_JSON_KEY_ALLOW_INT_OR_BOOL = True
     )
